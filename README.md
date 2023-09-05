@@ -7,56 +7,45 @@ Proyecto base de automatización con playwright
 ### Editar de aqui para abajo
 
 ## Description
-This project aims to establish a standard base for test automation with different technologies such as Serenity Web under a Screenplay Pattern design, which can be used as a guide in different projects.
+Este proyecto busca dejar un arquetipo base para empezar a utilizar en un patron POM
 
 ## Project status
 <h4 align="center"> 🚧 Proyecto en construcción 🚧 </h4> 
 
-## Consideraciones
-    - Para hacer uso de la funcionalidad de prueba que implementa la utilidad de Base de Datos es importante 
-    que se instacie una Base de datos y se configura en el archivo de configuración ubicado en:
-        ./src/main/resources/configs/congig.properties
+
+## ✅ Tecnologías
+### Este proyecto usa las siguientes técnologías:
+- Node.js V 16+
+- Windows 10+
+- Visual Studio Code
+
+Tambien se requiere la instalación del plugin de:
+Playwright Test for VSCode
+El cual facilita la interacción con los test y nos da una visual más amplia
 
 
-    - La funcionalidad de prueba que implementa la utilidad de manejo de documentos de Google Sheet hace uso
-    de un documento de Google Sheet ubicado en el drive de Pragma, las credenciasles del API de Google se encuentran
-    en: 
-        ./src/main/resources/credenciales.json
-    las cuales fueron generadas por un API de google creado bajo una cuenta de Pragma. Si desea ejecutar un documento tambien 
-    dentro del drive de Pragma solo cambie el ID del documento y cree un documento con 
-        |correo | contraseña | secret de google authenticator |
-    
-    A su vez, el manejo de codigos de autenticacion de GoogleAuthenticator OTP tambien hace uso del documento de GoogleSheet,
-    por lo cual es importante exista el documento con la información de acceso.
-    De lo contrario solo use la implementacion dentro del feature Login.feature como un ejemplo
-
-
-    Dadas las consideraciones anteriores, la implementacion de las utilidades solo se encuentran expuestas a modo 
-    de ejemplo y unicamente funcionaran si se hacen las configuraciones pertinentes.
-
-
-## ✅ Technologies
-### This project required:
-- [JDK java] version 11
-- [Serenity] version 
-- [Gradle] version
-- [Appium] version
-
-
-## Usage
-Use examples liberally, and show the expected output if you can. It's helpful to have inline the smallest example of usage that you can demonstrate, while providing links to more sophisticated examples if they are too long to reasonably include in the README.
-
-## 📁 Access to project
-
-- [ ] [Create](https://docs.gitlab.com/ee/user/project/repository/web_editor.html#create-a-file) or [upload](https://docs.gitlab.com/ee/user/project/repository/web_editor.html#upload-a-file) files
-- [ ] [Add files using the command line](https://docs.gitlab.com/ee/gitlab-basics/add-file.html#add-a-file-using-the-command-line) or push an existing Git repository with the following command:
+## Instalación
+Para instalar Playwright basta con ejecutar el comando de instalación:
 
 ```
-cd existing_repo
-git remote add origin https://gitlab.com/calidad_de_software/framework-actions-automation.git
-git branch -M develop
-git push -uf origin develop
+npm init playwright@latest
 ```
+
+- Despues elegir entre TypeScript o JavaScript (por defecto es TypeScript)
+- Nombre de la carpeta Tests (por defecto es tests o e2e si ya tienes una carpeta tests en tu proyecto)
+- Añada un flujo de trabajo de Acciones de GitHub para ejecutar fácilmente pruebas en CI (Por ahora no se usaran: false)
+- Instalar navegadores Playwright (por defecto es true)
+
+## 📁 Explicación Carpetas
+
+- playwright-config.ts
+Esta carpeta trae todas las configuraciones que se pueden realizar en Playwright, por ej: Directorio de los tests, configurar en los reportes los videos y imagenes que se requieren, configurar una url por defecto, configurar los navegadores, etc
+
+- package.json
+
+Nos explica las versiones que se estan utilizando en el proyecto
+el autor, la descripción, etc lo normal de un package.json
+
 
 ##  🛠️ Run tests Chrome gradle:
 ```
