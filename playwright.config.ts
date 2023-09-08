@@ -10,34 +10,35 @@ import { defineConfig, devices } from '@playwright/test';
  * See https://playwright.dev/docs/test-configuration.
  */
 export default defineConfig({
+  /**Directorio donde estan los tests */
   testDir: './tests',
-  /* Run tests in files in parallel */
+  /*  Ejecutar pruebas en archivos en paralelo*/
   fullyParallel: true,
-  /* Fail the build on CI if you accidentally left test.only in the source code. */
+  /* Falla la compilación en CI si accidentalmente dejaste test.only en el código fuente. */
   forbidOnly: !!process.env.CI,
-  /* Retry on CI only */
+ //Viene por defecto configurado para que corran solo en un pipeline /* Retry on CI only */
   retries: process.env.CI ? 2 : 0,
-  /* Opt out of parallel tests on CI. */
+  /* Optar por no realizar pruebas paralelas en CI. */
   workers: process.env.CI ? 1 : undefined,
   /* Reporter to use. See https://playwright.dev/docs/test-reporters */
-  reporter: 'html',
+  reporter:[['html']] ,
+  /**Si el tiempo alcanza explicar un poco el reporte 'list' para una salida de terminal agradable */
+
+  /**['json', {  outputFile: 'test-results.json' }]   para obtener un archivo json completo con los resultados de las pruebas. */
+
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
   use: {
     /* Base URL to use in actions like `await page.goto('/')`. */
     // baseURL: 'http://127.0.0.1:3000',
 
-    /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
+    /* Recoger la traza al reintentar la prueba fallida. See https://playwright.dev/docs/trace-viewer */
     trace: 'on-first-retry',
     headless: false,
     screenshot: "on",
     video: "on",
-    
-    
-    
-    
   },
 
-  /* Configure projects for major browsers */
+  /* Configurar proyectos para los principales navegadores */
   projects: [
     {
       name: 'chromium',

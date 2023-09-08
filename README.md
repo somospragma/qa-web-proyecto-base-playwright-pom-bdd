@@ -23,7 +23,7 @@ Tambien se requiere la instalación del plugin de:
 Playwright Test for VSCode
 El cual facilita la interacción con los test y nos da una visual más amplia
 
-
+Crear la carpeta inicial donde se llevara a cabo la demostración
 ## Instalación
 Para instalar Playwright basta con ejecutar el comando de instalación:
 
@@ -49,11 +49,23 @@ el autor, la descripción, etc lo normal de un package.json
 
 ##  🛠️ Run tests Chrome gradle:
 ```
-gradle clean test -Dcontext=chrome -Dwebdriver.driver=chrome
-gradle clean test --info --stacktrace --tests "ruta.nameRunner" -Dcontext=chrome -Dwebdriver.driver=chrome
-gradle clean test -Dcucumber.options="--tags @someTag" -Dcontext=chrome -Dwebdriver.driver=chrome
-gradle clean test -Dcucumber.options="--tags '@someTag or @someTag'" -Dcontext=chrome -Dwebdriver.driver=chrome
+npx playwright test 
 ```
+Para correr todos los tests configigurados
+```
+npx playwright test example
+```
+Para correr todos los tests en una ubicación precisa
+```
+npx playwright test --debug
+```
+Para correr los test en modo debug
+
+```
+npx playwright show-report
+```
+Para lanzar un servidor y ver los diferentes reportes
+
 ### ejemplo
 ```
 gradle clean test --info --stacktrace --tests "co.com.pragma.runners.LoginRunner" -Dcontext=chrome -Dwebdriver.driver=chrome
