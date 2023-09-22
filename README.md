@@ -2,49 +2,35 @@
 
 
 ## Name
-Proyecto base de automatización con playwright 
+Proyecto base de automatización con playwright -
+rama: pw-charla-2
 
-### Editar de aqui para abajo
 
 ## Description
-This project aims to establish a standard base for test automation with different technologies such as Serenity Web under a Screenplay Pattern design, which can be used as a guide in different projects.
+En esta rama se encuentra el contenido de la charla numero dos de playwirght, en donde realizamos un overview de las siguiente funcionalidades:
+
+* CodeGen
+* Debugging e inspector
+* Tracing
+* Annotations
+* Assertions and locators
+
+
 
 ## Project status
 <h4 align="center"> 🚧 Proyecto en construcción 🚧 </h4> 
 
 ## Consideraciones
-    - Para hacer uso de la funcionalidad de prueba que implementa la utilidad de Base de Datos es importante 
-    que se instacie una Base de datos y se configura en el archivo de configuración ubicado en:
-        ./src/main/resources/configs/congig.properties
+    - Se debe tener previamente instalado playwright en el entorno de trabajo
 
-
-    - La funcionalidad de prueba que implementa la utilidad de manejo de documentos de Google Sheet hace uso
-    de un documento de Google Sheet ubicado en el drive de Pragma, las credenciasles del API de Google se encuentran
-    en: 
-        ./src/main/resources/credenciales.json
-    las cuales fueron generadas por un API de google creado bajo una cuenta de Pragma. Si desea ejecutar un documento tambien 
-    dentro del drive de Pragma solo cambie el ID del documento y cree un documento con 
-        |correo | contraseña | secret de google authenticator |
-    
-    A su vez, el manejo de codigos de autenticacion de GoogleAuthenticator OTP tambien hace uso del documento de GoogleSheet,
-    por lo cual es importante exista el documento con la información de acceso.
-    De lo contrario solo use la implementacion dentro del feature Login.feature como un ejemplo
-
-
-    Dadas las consideraciones anteriores, la implementacion de las utilidades solo se encuentran expuestas a modo 
-    de ejemplo y unicamente funcionaran si se hacen las configuraciones pertinentes.
 
 
 ## ✅ Technologies
 ### This project required:
-- [JDK java] version 11
-- [Serenity] version 
-- [Gradle] version
-- [Appium] version
+- Playwrigth@Lastest
+- Visual estudio code
 
 
-## Usage
-Use examples liberally, and show the expected output if you can. It's helpful to have inline the smallest example of usage that you can demonstrate, while providing links to more sophisticated examples if they are too long to reasonably include in the README.
 
 ## 📁 Access to project
 
@@ -58,53 +44,47 @@ git branch -M develop
 git push -uf origin develop
 ```
 
-##  🛠️ Run tests Chrome gradle:
-```
-gradle clean test -Dcontext=chrome -Dwebdriver.driver=chrome
-gradle clean test --info --stacktrace --tests "ruta.nameRunner" -Dcontext=chrome -Dwebdriver.driver=chrome
-gradle clean test -Dcucumber.options="--tags @someTag" -Dcontext=chrome -Dwebdriver.driver=chrome
-gradle clean test -Dcucumber.options="--tags '@someTag or @someTag'" -Dcontext=chrome -Dwebdriver.driver=chrome
-```
-### ejemplo
-```
-gradle clean test --info --stacktrace --tests "co.com.pragma.runners.LoginRunner" -Dcontext=chrome -Dwebdriver.driver=chrome
-```
+##  🛠️ Run Commands:
 
-##  🛠️ Run tests Firefox gradle:
+#### Codegen
 ```
-gradle clean test -Dcontext=firefox -Dwebdriver.driver=firefox
-gradle test --tests "co.com.pragma.runners.LoginRunner" -Dcontext=firefox -Dwebdriver.driver=firefox
+npx playwright codegen
 ```
-### ejemplo
+#### Inspector and Debugging
 ```
-gradle clean test --info --stacktrace --tests "co.com.pragma.runners.LoginRunner" -Dcontext=firefox -Dwebdriver.driver=firefox
+npx playwright test  --debug
 ```
-
-
-cucumber.options might be cucumberOptions according to version
-
-## **Run tests in different environments:**
+#### Tracing
 ```
-gradle command... -Denvironment=defaul
-gradle command... -Denvironment=dev
-gradle command... -Denvironment=qa
-gradle command... -Denvironment=prod
+npx playwright test --trace on
 ```
-### Note: 
-    - The default environment will be used if no other value is provided
-    - Could modify the environment urls in .../test/resources/serenity.conf
-
-
-## **Run tests in different browser:**
+#### Annotations
+Cuando quiero ejecutar solo las pruebas con la etiqueta @debug 
 ```
-gradle command... -Dwebdriver.driver=chrome
-gradle command... -Dwebdriver.driver=firefox
-gradle command... -Dwebdriver.driver=edge
+npx playwright test search.spec.ts --grep --% @debug
 ```
-### Note:
-    - The chrome browser will be used if no other value is provided
-    - Could add browser in ./src/test/java/co/com/pragma/stepdefinitions/SerenityWebHooks.java
-
+funciones predefinidas
+```
+- test.skip()
+    
+    marca la prueba como irrelevante. Playwright Test no realiza dicha prueba. Utilice esta anotación cuando la prueba no sea aplicable en alguna configuración.
+    
+- test.fail()
+    
+    marca la prueba como fallida. Playwright Test ejecutará esta prueba y se asegurará de que realmente falle. Si la prueba no falla, Playwright Test se quejará.
+    
+- test.fixme()
+    
+    marca la prueba como fallida. Playwright Test no ejecutará esta prueba, a diferencia de la
+    
+    anotación. Úselo
+    
+    cuando la ejecución de la prueba sea lenta o falle.
+    
+- test.slow()
+    
+    marca la prueba como lenta y triplica el tiempo de espera de la prueba.
+```
 
 ## Collaborate with your team
 
@@ -133,6 +113,7 @@ Tell people where they can go to for help. It can be any combination of an issue
 If you have ideas for releases in the future, it is a good idea to list them in the README.
 
 ## Authors and acknowledgment
+| [<img src="https://gitlab.com/uploads/-/system/user/avatar/15033064/avatar.png?width=400" width=115><br><sub>Cristian F. Roa C.</sub>](https://gitlab.com/cristian.roa) <br/> 
 
 
 ## License
