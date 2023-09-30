@@ -14,16 +14,8 @@ export default defineConfig({
 
 
   testMatch: ["tests/loginscreenplay.spec.ts"],
-  /*  Ejecutar pruebas en archivos en paralelo*/
-  fullyParallel: true,
-  /* Falla la compilación en CI si accidentalmente dejaste test.only en el código fuente. */
-  forbidOnly: !!process.env.CI,
- //Viene por defecto configurado para que corran solo en un pipeline /* Retry on CI only */
-  retries: process.env.CI ? 2 : 0,
-  /* Optar por no realizar pruebas paralelas en CI. */
-  workers: process.env.CI ? 1 : undefined,
   /* Reporter to use. See https://playwright.dev/docs/test-reporters */
-  reporter:[['html']] ,
+  reporter:[['html'], ["allure-playwright"]] ,
   /**Si el tiempo alcanza explicar un poco el reporte 'list' para una salida de terminal agradable */
 
   /**['json', {  outputFile: 'test-results.json' }]   para obtener un archivo json completo con los resultados de las pruebas. */

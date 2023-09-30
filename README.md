@@ -1,8 +1,8 @@
-# proyecto-base-playwright-pom-bdd
+# Screenplay V1
 
 
-## Name
-Proyecto base de automatización con playwright 
+## Proyecto base de automatización con playwright
+ 
 
 ### Editar de aqui para abajo
 
@@ -47,7 +47,9 @@ Nos explica las versiones que se estan utilizando en el proyecto
 el autor, la descripción, etc lo normal de un package.json
 
 
-##  🛠️ Run tests Chrome gradle:
+
+
+##  🛠️ Run tests
 ```
 npx playwright test 
 ```
@@ -66,3 +68,41 @@ npx playwright show-report
 ```
 Para lanzar un servidor y ver los diferentes reportes
 
+##  💹 Reportes con allure
+
+Para integrar el framework de reportes de allure con los test de playwright se debe hacer lo siguiente:
+
+###Instalar scoop
+
+Basta con escribir los comandos en powershell
+```
+Set-ExecutionPolicy RemoteSigned -Scope CurrentUser
+```
+```
+irm get.scoop.sh | iex
+```
+
+Con esto tendremos instaldo scoop
+
+### Instalar allure
+Ejecutamos el comando:
+```
+scoop install allure
+```
+
+Y ya en nuestro proyecto instalamos la dependencia:
+```
+npm i -D @playwright/test allure-playwright
+```
+
+
+###Correr el reporte allure
+
+para que se puedan observar los reportes con allure se debe ejecutar:
+```
+allure generate allure-results
+```
+Para abrir el reporte en un servidor local se usa:
+```
+allure open allure-report
+```

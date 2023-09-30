@@ -13,9 +13,9 @@ test.describe('@Feature: El usuario hace login en la pagina', async () =>{
         await page.goto("/");
         await page.waitForTimeout(3000);
     })
-    test.describe('Scenario: el usuario realiza el login en la pagina', async() =>{
+    test.describe('Feature: usuario ingresa a su cuenta', async() =>{
 
-        test('Given: usuario ingresa su correo y contraseña', async()=>{
+        test('Scenario: el usuario realiza el login en la pagina', async()=>{
             Anotations.given('usuario ingresa su correo y contraseña');
             await login.setDataForm("pruebaplaywright1@yopmail.com", "admin123");
             Anotations.when('usuario ingresa a su cuenta')
