@@ -2,26 +2,28 @@
 
 
 ## Name
-Proyecto base de automatización con playwright -
-rama: pw-charla-2
+base project artifact automation using playwright -
 
 
 ## Description
-En esta rama se encuentra el contenido de la charla numero dos de playwirght, en donde realizamos un overview de las siguiente funcionalidades:
+This project contains an implementation of POM pattern and BDD layer using playwrigt and cucumber. For this project you need to install the following package:
 
-* CodeGen
-* Debugging e inspector
-* Tracing
-* Annotations
-* Assertions and locators
-
-
+* PlayWright
+```
+npm init playwright@latest
+```
+* Cucumber
+```
+npm i @cucumber/cucumber -D
+```
+* Ts-node
+```
+npm i ts-node -D
+```
 
 ## Project status
 <h4 align="center"> 🚧 Proyecto en construcción 🚧 </h4> 
 
-## Consideraciones
-    - Se debe tener previamente instalado playwright en el entorno de trabajo
 
 
 
@@ -29,6 +31,7 @@ En esta rama se encuentra el contenido de la charla numero dos de playwirght, en
 ### This project required:
 - Playwrigth@Lastest
 - Visual estudio code
+- Cucumber@Lastest
 
 
 
@@ -46,44 +49,38 @@ git push -uf origin develop
 
 ##  🛠️ Run Commands:
 
-#### Codegen
+### Test Execute 
 ```
-npx playwright codegen
+npm run test
 ```
-#### Inspector and Debugging
+
+### Configure Cucumber runner 
+To configure cucumber runner you need to set up your custom parameters in the file called *cucumber.json*, see the following example:
 ```
-npx playwright test  --debug
-```
-#### Tracing
-```
-npx playwright test --trace on
-```
-#### Annotations
-Cuando quiero ejecutar solo las pruebas con la etiqueta @debug 
-```
-npx playwright test search.spec.ts --grep --% @debug
-```
-funciones predefinidas
-```
-- test.skip()
-    
-    marca la prueba como irrelevante. Playwright Test no realiza dicha prueba. Utilice esta anotación cuando la prueba no sea aplicable en alguna configuración.
-    
-- test.fail()
-    
-    marca la prueba como fallida. Playwright Test ejecutará esta prueba y se asegurará de que realmente falle. Si la prueba no falla, Playwright Test se quejará.
-    
-- test.fixme()
-    
-    marca la prueba como fallida. Playwright Test no ejecutará esta prueba, a diferencia de la
-    
-    anotación. Úselo
-    
-    cuando la ejecución de la prueba sea lenta o falle.
-    
-- test.slow()
-    
-    marca la prueba como lenta y triplica el tiempo de espera de la prueba.
+{
+    "default":{
+        "tags": "@debug",
+        "formatOptions":{
+            "snippetInterface" : "async-await"
+        },
+        "paths" : [
+            "src/test/features/"
+        ],
+        "dryRun": false,
+        "require":[
+            "src/test/steps/*.ts",
+            "src/hooks/hooks.ts"
+
+        ],
+        "requireModule":[
+            "ts-node/register"
+        ],
+        "format":[
+            "progress-bar",
+            "html:cucumber-report.html"
+        ]
+    }
+}
 ```
 
 ## Collaborate with your team

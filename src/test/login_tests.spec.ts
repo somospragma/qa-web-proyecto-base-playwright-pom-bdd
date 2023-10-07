@@ -1,5 +1,5 @@
 import { test, expect } from '@playwright/test';
-import { SwagLabsLogin } from '../src/pages/LoginPage';
+import { SwagLabsLogin } from '../pages/LoginPage';
 
 test.describe("Feature: Login ", () => {
     //Arrange

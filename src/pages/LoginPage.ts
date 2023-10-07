@@ -15,7 +15,7 @@ export class SwagLabsLogin {
     }
 
     async goto(){
-        await this.page.goto('/')
+        await this.page.goto('https://www.saucedemo.com/v1/')
     }
 
     async doLogin(user : string, pass: string){
