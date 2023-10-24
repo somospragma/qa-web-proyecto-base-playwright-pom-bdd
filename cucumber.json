@@ -1,6 +1,5 @@
 {
     "default":{
-        "tags": "@debug",
         "formatOptions":{
             "snippetInterface" : "async-await"
         },
